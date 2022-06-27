@@ -7,16 +7,27 @@ export default function getPokemonIMG({pokemonName = 'pikachu'} = {})
     return fetch(apiURL)
       .then(res => res.json())
       .then(response =>{
-        console.log(response)
-        const arrayPokemonImg = Object.entries(response.sprites)
-        let imgPokemonFormateadas = []
-        arrayPokemonImg.forEach((pokemonImg)=>{
-          if(typeof pokemonImg[1] === 'string' || pokemonImg[1] instanceof String){
-            imgPokemonFormateadas.push(pokemonImg)
+
+        const pokemonSpritesValue = Object.entries(response.sprites)
+
+        if(pokemonSpritesValue){
+
+            pokemonSpritesValue.filter(x => x !== null)
+            pokemonSpritesValue.splice(-2)
+        
+        }
+        
+        var pokemonData = []
+
+        pokemonSpritesValue.forEach( image => {
+          if(image[1] != null){
+              var  url  = image[1]
+              var  tittle  = image[0]
+              pokemonData.push({url,tittle})
           }
         })
 
-        return imgPokemonFormateadas
+        return pokemonData
 
       })
 }

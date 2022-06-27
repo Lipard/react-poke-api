@@ -7,7 +7,7 @@ function App() {
   const[pokemon, updatePokemon] = useState([]) 
  
   useEffect(function() {
-    getPokemonIMG({pokemonName : 'cleffa'}).then(pkmImg => updatePokemon(pkmImg))
+    getPokemonIMG({pokemonName : 'charmander'}).then(pkmImg => updatePokemon(pkmImg))
     
   },[])
 
@@ -16,7 +16,13 @@ function App() {
       <section className="App-content">
         {
           pokemon.map(
-            singleImg => <img src={singleImg[1]}/>
+            singleImg => {
+              return <div>
+                <img src={singleImg.url}/>
+                <p>{singleImg.tittle}</p>
+              </div>
+          }
+              
           )
         }
       </section>
