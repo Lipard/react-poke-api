@@ -1,10 +1,12 @@
 import './App.css';
 import {useState} from 'react';
 import ListOfPkmImg from './components/ListOfPkmImg';
+import {Route, useLocation} from 'wouter'
 
 function App() {
 
   const[namePokemon, setNamePokemon] = useState('charmander') 
+  const[location,setLocation]=useLocation()
 
  
   return (
@@ -14,11 +16,12 @@ function App() {
         <button onClick={()=> 
             {
               let inputValuePkmName = document.querySelector('#namePokemon').value
-              setNamePokemon(inputValuePkmName)
+              let href = "/pokemon/"+inputValuePkmName
+              setLocation(href)
             }
           }>Change to new Pokemon</button>
           
-        <ListOfPkmImg  pokemonName={namePokemon} />
+        <Route component={ListOfPkmImg} path="/pokemon/:pokemonName" />
       </section>
     </div>
   );
