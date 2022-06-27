@@ -17,7 +17,7 @@ function App() {
       <section className="App-content">
         {
           pokemon.map(
-            singleImg => <ImgPkm key={singleImg.title} title={singleImg.title} url={singleImg.url} />
+            ({title,url}) => <ImgPkm key={title} title={title} url={url} />
           )
         }
       </section>
