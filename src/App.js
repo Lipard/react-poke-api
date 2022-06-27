@@ -1,6 +1,7 @@
 import './App.css';
 import {useState,useEffect} from 'react';
 import getPokemonIMG from './services/getPokemonImg';
+import ImgPkm from "./components/ImgPkm";
 
 function App() {
 
@@ -16,13 +17,7 @@ function App() {
       <section className="App-content">
         {
           pokemon.map(
-            singleImg => {
-              return <div>
-                <img src={singleImg.url}/>
-                <p>{singleImg.tittle}</p>
-              </div>
-          }
-              
+            singleImg => <ImgPkm key={singleImg.title} title={singleImg.title} url={singleImg.url} />
           )
         }
       </section>

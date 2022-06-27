@@ -16,14 +16,14 @@ export default function getPokemonIMG({pokemonName = 'pikachu'} = {})
             pokemonSpritesValue.splice(-2)
         
         }
-        
+
         var pokemonData = []
 
         pokemonSpritesValue.forEach( image => {
           if(image[1] != null){
               var  url  = image[1]
-              var  tittle  = image[0]
-              pokemonData.push({url,tittle})
+              var  title  = image[0]
+              pokemonData.push({url,title})
           }
         })
 
