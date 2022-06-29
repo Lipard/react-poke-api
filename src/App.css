@@ -16,3 +16,16 @@
 .App-link {
   color: #61dafb;
 }
+
+ul.elementosMenu{
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+
+}
+
+ul.elementosMenu a{
+
+  color: white;
+  text-decoration: none;
+}

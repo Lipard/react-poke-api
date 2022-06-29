@@ -1,8 +1,8 @@
 
 
-export default function getPokemonIMG({pokemonName = 'pikachu'} = {})
+export default function getPokemonIMG({entityName = 'pikachu'} = {},{entity='pokemon'}={})
 {
-    const apiURL = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+    const apiURL = `https://pokeapi.co/api/v2/${entity}/${entityName}`
 
     return fetch(apiURL)
       .then(res => res.json())
@@ -10,7 +10,7 @@ export default function getPokemonIMG({pokemonName = 'pikachu'} = {})
 
         const pokemonSpritesValue = Object.entries(response.sprites)
 
-        if(pokemonSpritesValue){
+        if(pokemonSpritesValue && entity == 'pokemon'){
 
             pokemonSpritesValue.filter(x => x !== null)
             pokemonSpritesValue.splice(-2)

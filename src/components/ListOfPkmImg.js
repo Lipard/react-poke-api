@@ -4,13 +4,13 @@ import getPokemonIMG from "../services/getPokemonImg"
 
 export default function ListOfPkmImg({params})
 {   
-    const {pokemonName} = params
+    const {entityName,entity} = params
     
     const [pokemon,setPokemon] =useState([])
     useEffect(function() {
-        getPokemonIMG({pokemonName})
+        getPokemonIMG({entityName},{entity})
             .then(pkmImg => setPokemon(pkmImg))
-      },[pokemonName])
+      },[entityName]) 
 
     return pokemon.map(({title,url}) =>
          <ImgPkm 
